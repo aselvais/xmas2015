@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Xmas-AS-anim</title>
 
+	<script src="libs/jquery-1.11.3.js"></script>
 	<script src="libs/createjs/easeljs-0.8.1.combined.js"></script>
 	<script src="libs/createjs/movieclip-0.8.1.combined.js"></script>
 	<script src="libs/createjs/preloadjs-0.6.1.combined.js"></script>
@@ -11,17 +12,38 @@
 	<script src="libs/createjs/webgl-0.8.1.combined.js"></script>
 	<script src="libs/createjs/soundjs-0.6.1.combined.js"></script>
 
-	<script>
-		var acolor="#00FF00";
-	</script>
-
+	<script type="text/javascript" src="config.js"></script>
 	<script type="text/javascript" src="SpaceRock.js"></script>
 	<script type="text/javascript" src="Ship.js"></script>
 	<script type="text/javascript" src="asteroid.js"></script>
 
+	<script>
+		/**
+		 *
+		 * @param gamecanvas
+		 */
+		function initDom(gamecanvas)
+		{
+			$('body').css({backgroundColor: _config.BODY_BGCOLOR});
+			$(gamecanvas)
+					.width(_config.CANVAS_WIDTH)
+					.height(_config.CANVAS_HEIGHT)
+					.css({
+						backgroundColor: _config.CANVAS_BGCOLOR
+					});
+		}
+
+		$(function ()
+		{
+			initDom('#gameCanvas');
+			initGame('#gameCanvas');
+		});
+	</script>
+
+
 </head>
 
-<body onload="init();" style="background-color:#444">
-<canvas id="gameCanvas" width="500" height="300" style="background-color:#000"></canvas>
+<body>
+	<canvas id="gameCanvas" width="500" height="300"/>
 </body>
 </html>
