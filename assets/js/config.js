@@ -5,7 +5,7 @@ var _config = {
 	CANVAS_HEIGHT: 300,
 	ACOLOR: "#FFF",     //game color
 	DIFFICULTY: 2,		//how fast the game gets mor difficult
-	ROCK_TIME: 110,		//aprox tick count until a new asteroid gets introduced
+	ROCK_TIME: 50,		//aprox tick count until a new asteroid gets introduced
 	SUB_ROCK_COUNT: 4,	//how many small rocks to make on rock death
 	BULLET_TIME: 5,		//ticks between bullets
 	BULLET_ENTROPY: 100,//how much energy a bullet has before it runs out.

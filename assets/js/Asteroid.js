@@ -15,6 +15,8 @@
 	var rockBelt;			//space rock array
 	var bulletStream;		//bullet array
 
+	var snowball;			// the snowball
+
 	var $canvas;			//Main $canvas
 	var stage;			//Main display stage
 
@@ -126,7 +128,8 @@
 		//watch for clicks
 		stage.addChild(messageField);
 		stage.update(); 	//update the stage to show text
-		$canvas.on('click', handleClick);
+		// $canvas.on('click', handleClick);
+		handleClick();
 	}
 
 	/**
@@ -154,6 +157,8 @@
 		//scoreField.text = (0).toString();
 		//stage.addChild(scoreField);
 
+		snowball = new SnowBall();
+
 		//new arrays to dump old data
 		rockBelt = [];
 		bulletStream = [];
@@ -174,6 +179,7 @@
 		//ensure stage is blank and add the ship
 		stage.clear();
 		stage.addChild(ship);
+		stage.addChild(snowball);
 
 		//start game timer
 		if (!createjs.Ticker.hasEventListener("tick"))
@@ -188,6 +194,7 @@
 	 */
 	function tick(event)
 	{
+		snowball.tick();
 		//handle firing
 		if (nextBullet <= 0)
 		{
